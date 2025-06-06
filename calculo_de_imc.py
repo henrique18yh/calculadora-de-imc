@@ -1,36 +1,27 @@
-nome = input("Digite seu nome: ")
+try:
+    nome = input("Digite seu nome: ")
 
-peso = float(input("Digite seu peso: "))
+    peso = float(input("Digite seu peso (em kg): "))
+    altura = float(input("Digite sua altura (em metros): "))
 
-altura = float(input("Digite sua altura: "))
+    imc = peso / (altura * altura)
 
-imc =   peso / ( altura*altura )
+    if imc <= 18.5:
+        print(f"{nome}, seu IMC é {imc:.2f} e você está abaixo do peso.")
+    elif 18.5 < imc <= 24.9:
+        print(f"{nome}, seu IMC é {imc:.2f} e você está com peso normal.")
+    elif 25.0 <= imc <= 29.9:
+        print(f"{nome}, seu IMC é {imc:.2f} e você está com sobrepeso.")
+    elif 30.0 <= imc <= 34.9:
+        print(f"{nome}, seu IMC é {imc:.2f} e você está com obesidade grau I.")
+    elif 35.0 <= imc <= 39.9:
+        print(f"{nome}, seu IMC é {imc:.2f} e você está com obesidade grau II.")
+    elif imc >= 40.0:
+        print(f"{nome}, seu IMC é {imc:.2f} e você está com obesidade grau III.")
 
-if imc <= 18.5:
-   print(f"{nome}, seu imc é {imc} e voce esta abaixo do peso")
+    print("-------------------------------------------------------------------------")
+    print(f"Paciente {nome}, sua classificação de IMC é {imc:.2f}")
+    print("-------------------------------------------------------------------------")
 
-elif imc >= 18.5 and imc <=24.9:
-
-   print(f"{nome}, seu imc é {imc} e voce esta peso normal")
-
-elif imc >= 25.0 and imc <=29.9:
-
-    print(f"{nome}, seu imc é {imc} e voce esta sobrepeso")
-
-elif imc >= 30.0 and imc <= 34.9:
-
-    print(f"{nome}, seu imc é {imc} e voce esta obesidade grau I")
-
-elif imc >= 35.0 and imc <= 39.9:
-
-    print(f"{nome}, seu imc é {imc} e voce esta obesidade grau II")
-
-elif imc >= 40.0 and imc <= 49.9:
-    
-    print(f"{nome}, seu imc é {imc} e voce estao besidade grau III")
-
-print("-------------------------------------------------------------------------")
-
-print(f"Paciente {nome} sua classificação de imc {imc} ")
-
-print("-------------------------------------------------------------------------")
+except ZeroDivisionError:
+    print("Erro: Certifique-se de digitar números válidos para peso e altura.")
