@@ -25,3 +25,7 @@ try:
 
 except ZeroDivisionError:
     print("Erro: Certifique-se de digitar números válidos para peso e altura.")
+    
+with open ("cadastro_imc.txt", "a") as arquivo:
+    arquivo.write(f"nome: {nome}\nIMC: {imc:.2f}")
+    arquivo.write("\n---------------------------")
